@@ -1,3 +1,5 @@
+import { useMemo } from 'react';
+import QRCode from 'qrcode';
 import type { SlideProps } from '../deck/types';
 import { PlateCrop, Reveal } from './common';
 
@@ -9,39 +11,33 @@ const PROMPTS = [
   'If you had a supercomputer for one day, what would you simulate?',
 ];
 
-/**
- * Where the site will live online. Leave empty until it's deployed; once set, the
- * QR slot below shows in talk mode too (drop a QR image/component into it then).
- */
-const ONLINE_URL = '';
+/** Where the site lives online (GitHub Pages). The QR opens it in explore mode. */
+const ONLINE_URL = 'https://jehumtine.github.io/intro-to-hpc-seminar/?explore';
+const ONLINE_LABEL = 'jehumtine.github.io/intro-to-hpc-seminar';
+
+/** QR code drawn as plain SVG squares (generated locally, works offline). */
+function Qr({ text, size }: { text: string; size: number }) {
+  const qr = useMemo(() => QRCode.create(text, { errorCorrectionLevel: 'M' }), [text]);
+  const n = qr.modules.size;
+  const cells: JSX.Element[] = [];
+  for (let y = 0; y < n; y++)
+    for (let x = 0; x < n; x++) if (qr.modules.get(x, y)) cells.push(<rect key={y * n + x} x={x} y={y} width={1.02} height={1.02} />);
+  return (
+    <svg width={size} height={size} viewBox={`-2 -2 ${n + 4} ${n + 4}`} style={{ background: '#fff', flex: 'none', border: '1.5px solid var(--ink)' }}>
+      <g fill="#000">{cells}</g>
+    </svg>
+  );
+}
 
 function QrSlot() {
   return (
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        gap: 22,
-        marginTop: 16,
-      }}
-    >
-      {/* TODO: QR code for ONLINE_URL goes here (no QR library yet) */}
-      <div
-        style={{
-          width: 96,
-          height: 96,
-          border: '2px dashed var(--ink-faint)',
-          display: 'grid',
-          placeItems: 'center',
-          fontFamily: 'var(--display)',
-          fontSize: 18,
-          color: 'var(--ink-faint)',
-          flex: 'none',
-        }}
-      >
-        QR
+    <div style={{ display: 'flex', alignItems: 'center', gap: 30, marginTop: 10 }} data-interactive>
+      <Qr text={ONLINE_URL} size={190} />
+      <div>
+        <div className="eyebrow" style={{ fontSize: 20 }}>Play with it yourself</div>
+        <p style={{ fontSize: 28, marginTop: 8 }}>Scan to open every demo on your phone.</p>
+        <p className="hint" style={{ fontSize: 22 }}>{ONLINE_LABEL}</p>
       </div>
-      <p className="hint" style={{ fontSize: 26 }}>{ONLINE_URL || 'online version: link coming soon'}</p>
     </div>
   );
 }
@@ -60,7 +56,7 @@ export function Closing({ step, explore }: SlideProps) {
           <div className="eyebrow">Symposium</div>
           <ol>
             {PROMPTS.map((p, i) => (
-              <li key={i} style={explore ? { fontSize: 31, marginBottom: 20 } : undefined}>
+              <li key={i} style={{ fontSize: 30, marginBottom: 16 }}>
                 <span className="n">{['I', 'II', 'III', 'IV', 'V'][i]}</span>
                 {p}
               </li>
@@ -71,7 +67,7 @@ export function Closing({ step, explore }: SlideProps) {
               Thank you for exploring. Go back and play with any demo: every slider is yours.
             </p>
           )}
-          {(explore || ONLINE_URL) && <QrSlot />}
+          <QrSlot />
         </Reveal>
       </div>
     </div>
