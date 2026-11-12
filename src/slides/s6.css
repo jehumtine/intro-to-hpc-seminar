@@ -1,0 +1,52 @@
+/* ---------- Section VI: What Comes Next ---------- */
+
+/* TOP500 */
+.s6-top { display: flex; flex-direction: column; gap: 16px; }
+.s6-row { display: grid; grid-template-columns: 90px 380px 1fr 320px; align-items: center; gap: 28px; height: 96px; border-bottom: 1px solid var(--ink-faint); position: relative; }
+.s6-row .rk { font-family: var(--display); font-weight: 600; font-size: 54px; text-align: center; }
+.s6-row .nm { font-family: var(--display); font-weight: 600; font-size: 34px; line-height: 1.05; }
+.s6-row .nm small { display: block; font-family: var(--serif); font-weight: 400; font-style: italic; font-size: 22px; color: var(--ink-soft); letter-spacing: 0; }
+.s6-row .bar { height: 46px; border: 1.5px solid var(--ink); position: relative; }
+.s6-row .bar span { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); font-family: var(--display); font-weight: 600; font-size: 24px; background: var(--paper); padding: 0 8px; white-space: nowrap; }
+.s6-row .acc { font-size: 26px; font-style: italic; }
+.s6-row.first { height: 120px; border-bottom: 2px solid var(--ink); }
+.s6-row.first .nm { font-size: 44px; }
+.s6-stamp { position: absolute; right: 10px; top: 50%; font-family: var(--display); font-weight: 600; font-size: 46px; border: 4px solid var(--ink); padding: 4px 22px; background: var(--paper); letter-spacing: 0.06em; }
+.s6-scratch { position: absolute; left: 50%; top: -6px; font-family: var(--display); font-size: 40px; font-style: italic; letter-spacing: 0.3em; white-space: nowrap; }
+.s6-empty { display: grid; place-items: center; height: 120px; border: 2px dashed var(--ink-faint); font-family: var(--display); font-size: 60px; color: var(--ink-faint); }
+
+/* the four futures share a header strip */
+.s6-futures { position: absolute; top: -104px; right: 0; display: flex; gap: 14px; }
+.s6-futures span { width: 46px; height: 46px; border: 1.5px solid var(--ink); border-radius: 50%; display: grid; place-items: center; font-family: var(--display); font-size: 20px; }
+.s6-futures span.on { background: var(--ink); color: var(--paper); }
+
+/* memory wall */
+.s6-mem { display: grid; grid-template-columns: 820px 1fr; gap: 60px; height: 100%; }
+.s6-mem svg { overflow: visible; }
+.s6-mem .q { display: flex; flex-direction: column; }
+.s6-mem .q svg { width: 100%; height: 470px; }
+.s6-mem .line { font-size: 32px; font-style: italic; line-height: 1.35; margin-top: 12px; }
+
+/* precision */
+.s6-prec { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; height: 100%; }
+.s6-prec .pane { display: flex; flex-direction: column; align-items: center; }
+.s6-prec canvas { width: 720px; height: 480px; display: block; }
+.s6-prec .lbl { font-family: var(--display); font-weight: 600; font-size: 40px; margin-top: 26px; }
+.s6-prec .sub { font-style: italic; font-size: 26px; color: var(--ink-soft); margin-top: 4px; }
+.s6-speed { display: flex; align-items: center; gap: 18px; margin-top: 18px; font-size: 26px; }
+.s6-speed .meter { width: 380px; height: 22px; border: 1.5px solid var(--ink); position: relative; }
+.s6-speed .meter div { position: absolute; inset: 0 auto 0 0; background: var(--ink); }
+
+/* specialisation */
+.s6-spec { display: grid; grid-template-rows: 1fr 1fr; gap: 30px; height: 100%; }
+.s6-belt { display: grid; grid-template-columns: 360px 1fr; gap: 40px; align-items: center; }
+.s6-belt .who { font-family: var(--display); font-weight: 600; font-size: 34px; line-height: 1.1; }
+.s6-belt .who small { display: block; font-family: var(--serif); font-weight: 400; font-style: italic; font-size: 26px; color: var(--ink-soft); margin-top: 8px; }
+.s6-belt svg { width: 100%; height: 260px; overflow: visible; }
+
+/* power */
+.s6-pow { display: grid; grid-template-columns: 1fr 640px; gap: 60px; height: 100%; }
+.s6-pow svg { width: 100%; height: 520px; overflow: visible; }
+.s6-pow .readout .big { font-family: var(--display); font-weight: 600; font-size: 88px; line-height: 1; }
+.s6-pow .readout p { font-size: 32px; line-height: 1.35; margin: 14px 0 26px; }
+.s6-pow .final { font-family: var(--display); font-weight: 600; font-size: 44px; line-height: 1.2; }

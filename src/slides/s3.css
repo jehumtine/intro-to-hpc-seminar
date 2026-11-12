@@ -1,0 +1,133 @@
+/* ===================== Section III: The First GPU ===================== */
+
+/* ---------- stations (shared with Section IV) ---------- */
+.stations { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 46px; padding-bottom: 26px; }
+.conveyor { position: absolute; left: -20px; right: -20px; bottom: 0; height: 18px; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); display: flex; justify-content: space-around; align-items: center; }
+.conveyor span { width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid var(--ink); }
+.st { position: relative; border: 1.5px solid var(--ink); background: var(--paper); display: flex; flex-direction: column; align-items: center; padding: 14px 10px 16px; gap: 4px; transition: background 0.5s, color 0.5s; }
+.st::after { content: '→'; position: absolute; right: -40px; top: 50%; transform: translateY(-50%); font-size: 34px; color: var(--ink); }
+.st:last-of-type::after { display: none; }
+.st-num { font-family: var(--display); font-size: 18px; letter-spacing: 0.2em; color: inherit; opacity: 0.7; }
+.st-name { font-family: var(--display); font-weight: 600; font-size: 26px; letter-spacing: 0.06em; }
+.st.on { background: var(--ink); color: var(--paper); }
+.st.lit { box-shadow: 0 0 0 5px var(--paper), 0 0 0 8px var(--ink); }
+.st-screen { margin-top: 8px; border: 1.5px solid currentColor; padding: 6px 10px; width: 100%; background: var(--paper); color: var(--ink); }
+.st-screen pre { font-family: 'DejaVu Sans Mono', 'Courier New', monospace; font-size: 17px; white-space: pre-wrap; }
+.st-lock { position: absolute; right: -22px; top: -34px; z-index: 2; }
+.st-welded { position: absolute; top: -34px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-style: italic; font-size: 22px; background: var(--paper); padding: 0 8px; }
+.st.on .st-lock path, .st.on .st-lock rect { stroke: var(--ink); }
+
+/* ---------- 1999 ---------- */
+.intro99 { flex-direction: row; align-items: center; gap: 120px; padding-left: 120px; }
+.intro99-hero { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.intro99-text { flex: 1; }
+.intro99-year { font-family: var(--display); font-weight: 600; font-size: 170px; line-height: 1; letter-spacing: 0.04em; margin-bottom: 40px; }
+.intro99-punch { font-size: 64px; line-height: 1.2; margin-top: 30px; }
+.intro99-punch span { font-family: var(--display); font-weight: 600; }
+
+/* ---------- marketing ---------- */
+.shelf { position: relative; display: flex; justify-content: center; gap: 40px; margin-top: 80px; padding-bottom: 26px; }
+.shelf-plank { position: absolute; left: 40px; right: 40px; bottom: 0; height: 22px; border: 2px solid var(--ink); background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M0 8L8 0' stroke='%23000000' stroke-width='1.2'/%3E%3C/svg%3E"); }
+.gbox { position: relative; width: 250px; height: 340px; border: 2px solid var(--ink); background: var(--paper); display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 22px 14px; box-shadow: 10px -10px 0 -2px var(--paper), 10px -10px 0 0 var(--ink); }
+.gbox-brand { font-family: var(--display); font-weight: 600; font-size: 25px; text-align: center; }
+.gbox-label { font-family: var(--display); font-size: 15px; letter-spacing: 0.16em; text-transform: uppercase; text-align: center; border-top: 1px solid var(--ink); padding-top: 10px; }
+.gbox-seal { position: absolute; right: -80px; top: 40px; z-index: 3; }
+.marketing-text { margin-top: 90px; display: flex; flex-direction: column; align-items: center; gap: 22px; }
+.gpu-cpu { display: flex; align-items: baseline; gap: 40px; justify-content: center; }
+.gpu-cpu .g { font-family: var(--display); font-weight: 600; font-size: 84px; letter-spacing: 0.08em; }
+.gpu-cpu .sounds { font-style: italic; font-size: 38px; color: var(--ink-soft); }
+.marketing-punch { font-size: 52px; font-style: italic; text-align: center; }
+.marketing-punch b { font-family: var(--display); font-style: normal; font-weight: 600; }
+
+/* ---------- triangle factory ---------- */
+.tf .tf-stations { margin: 16px 40px 0; }
+.tf .st { padding: 8px 10px 10px; flex-direction: row; justify-content: center; gap: 14px; }
+.tf .st svg { width: 40px; height: 40px; }
+.tf-bracket { position: absolute; top: 112px; left: 40px; width: 822px; z-index: 5; }
+.tf-bracket-line { height: 18px; border: 2px solid var(--ink); border-top: none; }
+.tf-bracket-text { margin-top: 8px; font-size: 26px; background: var(--paper); padding: 6px 10px; border: 1.5px solid var(--ink); }
+.tf-main { flex: 1; display: grid; grid-template-columns: 960px 1fr; gap: 60px; margin-top: 40px; align-items: start; }
+.tf-monitor { border: 3px solid var(--ink); border-radius: 26px; padding: 26px 30px; background: var(--paper); box-shadow: 0 0 0 7px var(--paper), 0 0 0 8.5px var(--ink); position: relative; }
+.tf-monitor canvas { display: block; width: 900px; height: 540px; border: 1.5px solid var(--ink); border-radius: 12px; cursor: grab; touch-action: none; }
+.tf-monitor canvas:active { cursor: grabbing; }
+.tf-side { padding-top: 16px; }
+.tf-station-name { font-family: var(--display); font-weight: 600; font-size: 44px; margin-bottom: 18px; }
+.tf-text b { font-family: var(--display); font-style: normal; font-size: 0.9em; }
+.tf-text { font-size: 38px; line-height: 1.35; font-style: italic; min-height: 260px; }
+.tf-controls { margin-top: 30px; display: flex; flex-direction: column; gap: 14px; }
+
+/* ---------- padlocks ---------- */
+.padlock-stations { margin: 10px 60px 0; }
+.padlock-stations .st { padding: 44px 10px 44px; }
+.padlock-stations .st svg:not(.st-lock svg) { transform: scale(1.3); }
+.dialogue { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin: 90px 60px 0; }
+.speech { border: 1.5px solid var(--ink); padding: 24px 30px; position: relative; background: var(--paper); }
+.speech .who { font-family: var(--display); letter-spacing: 0.2em; text-transform: uppercase; font-size: 18px; color: var(--ink-soft); margin-bottom: 10px; }
+.speech p { font-size: 36px; line-height: 1.3; font-style: italic; }
+.speech.chip { background: var(--ink); color: var(--paper); }
+.speech.chip .who { color: #b9b2a2; }
+.padlock-punch { margin: 80px 60px 0; font-size: 44px; text-align: center; }
+.padlock-punch b { font-family: var(--display); }
+.padlock-hint { position: absolute; right: 70px; top: 120px; }
+
+/* ---------- GeForce 3 ---------- */
+.gf3-stations { margin: 0 60px; }
+.gf3-stations .st { min-height: 210px; justify-content: flex-start; }
+.gf3-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; margin: 80px 60px 0; }
+.gf3-card { display: flex; gap: 28px; align-items: center; }
+.gf3-name { font-family: var(--display); font-weight: 600; font-size: 34px; margin-bottom: 6px; }
+.gf3-card p { font-size: 29px; line-height: 1.3; }
+
+/* ---------- water ---------- */
+.water-main { flex: 1; display: grid; grid-template-columns: 1020px 1fr; gap: 60px; }
+.water-plate { padding: 0; }
+.water-plate canvas { display: block; width: 1000px; height: 520px; cursor: crosshair; }
+.water-toggle { display: flex; gap: 14px; align-items: center; margin-top: 30px; }
+.water-toggle .hint { margin-left: 14px; }
+.water-side { display: flex; flex-direction: column; gap: 40px; }
+.code-card { border: 1.5px solid var(--ink); background: var(--ink); color: var(--paper); padding: 22px 26px; transition: opacity 0.5s; }
+.code-card.dim { opacity: 0.3; }
+.code-title { font-family: var(--display); letter-spacing: 0.14em; font-size: 16px; text-transform: uppercase; color: #b9b2a2; margin-bottom: 12px; }
+.code-card pre { font-family: 'DejaVu Sans Mono', 'Courier New', monospace; font-size: 23px; line-height: 1.45; }
+.xbox-kicker { font-family: var(--display); letter-spacing: 0.24em; text-transform: uppercase; font-size: 18px; color: var(--ink-soft); margin-bottom: 8px; }
+.xbox-text { font-size: 34px; line-height: 1.3; }
+.xbox-text b { font-family: var(--display); }
+
+/* ---------- scientist ---------- */
+.scientist { flex-direction: row; gap: 90px; align-items: center; padding: 0 60px; }
+.sci-figure { display: flex; flex-direction: column; gap: 22px; align-items: center; }
+.sci-plate { width: 620px; height: 700px; }
+.sci-thoughts { flex: 1; display: flex; flex-direction: column; gap: 46px; }
+.bubble { position: relative; border: 2px solid var(--ink); border-radius: 60px; padding: 36px 50px; background: var(--paper); }
+.bubble p { font-size: 46px; line-height: 1.35; font-style: italic; }
+.bubble em { font-style: normal; font-family: var(--display); font-weight: 600; font-size: 40px; }
+.bubble-dot { position: absolute; border: 2px solid var(--ink); border-radius: 50%; background: var(--paper); }
+.bubble-dot.a { width: 36px; height: 36px; left: -30px; bottom: 30px; }
+.bubble-dot.b { width: 22px; height: 22px; left: -62px; bottom: 6px; }
+.bubble-dot.c { width: 13px; height: 13px; left: -86px; bottom: -10px; }
+.sci-facts { display: flex; flex-direction: column; gap: 10px; font-size: 36px; }
+.sci-facts .num { display: inline-block; width: 150px; font-size: 40px; }
+.sci-punch { font-size: 42px; font-style: italic; }
+.sci-punch b { font-family: var(--display); font-style: normal; }
+
+/* ---------- smuggling ---------- */
+.smuggle-scene { position: relative; flex: 1; }
+.factory-box { position: absolute; left: 560px; top: 170px; width: 620px; height: 380px; border: 2.5px solid var(--ink); background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10'%3E%3Cpath d='M0 10L10 0' stroke='%23000000' stroke-width='0.8' opacity='0.35'/%3E%3C/svg%3E"), var(--paper); }
+.factory-box::before { content: ''; position: absolute; left: -2.5px; right: -2.5px; top: -70px; height: 70px; background: var(--ink); clip-path: polygon(0 100%, 12% 0, 24% 100%, 36% 0, 48% 100%, 60% 0, 72% 100%, 84% 0, 100% 100%); }
+.factory-sign { position: absolute; top: -132px; left: 50%; transform: translateX(-50%); border: 2px solid var(--ink); padding: 6px 20px; font-family: var(--display); font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; font-size: 24px; background: var(--paper); white-space: nowrap; }
+.factory-door { position: absolute; left: -2.5px; bottom: 0; width: 140px; height: 240px; border: 2.5px solid var(--ink); border-bottom: none; border-radius: 70px 70px 0 0; background: var(--paper); }
+.factory-mini { position: absolute; left: 180px; right: 30px; top: 120px; display: flex; gap: 16px; }
+.mini-st { flex: 1; height: 110px; border: 2px solid var(--ink); background: var(--paper); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-weight: 600; font-size: 30px; }
+.factory-label { position: absolute; bottom: 16px; left: 180px; font-style: italic; font-size: 24px; }
+.eqn { position: absolute; left: 40px; top: 230px; width: 380px; display: flex; flex-direction: column; align-items: center; z-index: 4; }
+.eqn-hat { font-family: var(--display); font-weight: 600; letter-spacing: 0.3em; font-size: 26px; background: var(--ink); color: var(--paper); padding: 6px 20px; margin-bottom: -2px; clip-path: polygon(8% 0, 92% 0, 100% 100%, 0 100%); }
+.eqn-card { position: relative; border: 2.5px solid var(--ink); background: var(--paper); padding: 34px 30px 90px; font-family: var(--serif); font-size: 50px; font-style: italic; white-space: nowrap; }
+.eqn-disguise { position: absolute; left: 50%; bottom: 10px; transform: translateX(-50%); }
+.eqn-says { margin-top: 22px; font-size: 32px; font-style: italic; }
+.smuggle-out { position: absolute; left: 1260px; top: 190px; width: 400px; height: 340px; display: flex; align-items: center; justify-content: center; }
+.out-grid { display: grid; grid-template-columns: repeat(6, 62px); gap: 4px; }
+.out-cell { height: 62px; border: 1px solid var(--ink); display: flex; align-items: flex-end; justify-content: center; }
+.out-cell span { font-family: 'DejaVu Sans Mono', monospace; font-size: 14px; background: var(--paper); padding: 0 2px; margin-bottom: 2px; }
+.smuggle-caption { position: absolute; left: 0; right: 0; bottom: 30px; text-align: center; font-size: 40px; font-style: italic; }
+.smuggle-caption b { font-family: var(--display); font-style: normal; }
+.smuggle-ctl { position: absolute; right: 60px; top: 10px; }

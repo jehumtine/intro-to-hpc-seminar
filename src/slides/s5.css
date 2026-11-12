@@ -1,0 +1,51 @@
+/* ---------- Section V: The World It Made ---------- */
+
+/* bedroom */
+.s5-bedroom { display: grid; grid-template-columns: 980px 1fr; gap: 70px; height: 100%; align-items: center; }
+.s5-bedroom svg { width: 980px; height: 660px; }
+.s5-side p { font-size: 34px; line-height: 1.4; margin-bottom: 26px; }
+.s5-side .who { display: grid; grid-template-columns: 1fr; gap: 14px; margin: 10px 0 30px; }
+.s5-side .who div { border-left: 2px solid var(--ink); padding-left: 18px; font-size: 28px; }
+.s5-side .who b { font-family: var(--display); font-weight: 600; font-size: 26px; letter-spacing: 0.04em; display: block; }
+.s5-train { margin-top: 18px; }
+.s5-train .bar { height: 26px; border: 1.5px solid var(--ink); position: relative; margin: 12px 0; }
+.s5-train .bar > div { position: absolute; inset: 0 auto 0 0; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M-2 2l4-4M0 8l8-8M6 10l4-4' stroke='%23000000' stroke-width='2'/%3E%3C/svg%3E"); }
+.s5-train .days { display: flex; justify-content: space-between; font-family: var(--display); font-size: 20px; color: var(--ink-soft); }
+
+/* ImageNet leaderboard */
+.s5-board { display: grid; grid-template-columns: 1100px 1fr; gap: 60px; height: 100%; }
+.s5-board svg { width: 1100px; height: 690px; overflow: visible; }
+.s5-board .side p { font-size: 34px; line-height: 1.4; margin-bottom: 24px; }
+.s5-board .side .big { font-family: var(--display); font-weight: 600; font-size: 52px; line-height: 1.1; }
+
+/* timeline */
+.s5-timeline { display: flex; flex-direction: column; height: 100%; }
+.s5-cards { display: grid; grid-template-columns: repeat(7, 1fr); gap: 22px; height: 350px; }
+.s5-card { border: 1.5px solid var(--ink); background: var(--paper); box-shadow: 0 0 0 5px var(--paper), 0 0 0 6px var(--ink-faint); padding: 22px 18px; display: flex; flex-direction: column; cursor: pointer; text-align: center; }
+.s5-card.sel { background: var(--ink); color: var(--paper); box-shadow: 0 0 0 5px var(--paper), 0 0 0 6px var(--ink); }
+.s5-card .yr { font-family: var(--display); font-weight: 600; font-size: 50px; line-height: 1; }
+.s5-card .rule { height: 1px; background: currentColor; margin: 16px 20px; opacity: 0.6; }
+.s5-card .what { font-family: var(--display); font-size: 25px; line-height: 1.2; letter-spacing: 0.02em; }
+.s5-card .sub { font-style: italic; font-size: 22px; margin-top: auto; opacity: 0.85; }
+.s5-card.sel svg { color: var(--paper); }
+.s5-card svg { width: 84px; height: 84px; margin: 18px auto 10px; display: block; }
+.s5-story { margin-top: 44px; min-height: 120px; text-align: center; font-size: 40px; font-style: italic; line-height: 1.35; padding: 0 80px; }
+
+/* gamers chain */
+.s5-chain { display: flex; flex-direction: column; height: 100%; justify-content: center; }
+.s5-chain .quote { text-align: center; font-family: var(--display); font-weight: 600; font-size: 84px; line-height: 1.1; margin-bottom: 60px; min-height: 92px; }
+.s5-links { display: grid; grid-template-columns: repeat(5, 1fr); align-items: start; }
+.s5-link { display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; }
+.s5-link .medal { width: 170px; height: 170px; border-radius: 50%; border: 2px solid var(--ink); box-shadow: 0 0 0 7px var(--paper), 0 0 0 8.5px var(--ink); display: grid; place-items: center; background: var(--paper); }
+.s5-link .medal svg { width: 100px; height: 100px; }
+.s5-link .lbl { margin-top: 30px; font-size: 30px; line-height: 1.25; max-width: 280px; }
+.s5-link .arrow { position: absolute; top: 72px; right: -38px; font-size: 44px; font-family: var(--display); }
+.s5-chain .foot { text-align: center; font-size: 32px; font-style: italic; margin-top: 56px; color: var(--ink-soft); }
+
+/* the bill */
+.s5-bill { display: grid; grid-template-columns: 860px 1fr; gap: 70px; height: 100%; align-items: center; }
+.s5-bill svg { width: 860px; height: 560px; overflow: visible; }
+.s5-bill .cards { display: flex; flex-direction: column; gap: 34px; }
+.s5-bill .card p { font-size: 30px; line-height: 1.35; }
+.s5-bill .card b { font-family: var(--display); font-weight: 600; }
+.s5-fire { font-family: var(--display); font-weight: 600; font-size: 46px; line-height: 1.2; }

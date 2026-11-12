@@ -1,0 +1,62 @@
+/* Section I */
+.zoom-svg, .problem-icon, .ladder, .asci-art, .elephants, .pizza-scene, .pizza-chart { color: var(--ink); overflow: visible; }
+
+/* zoom out */
+.zoom-view { position: absolute; left: 0; right: 0; top: 0; height: 450px; overflow: hidden; }
+.zoom-svg { position: absolute; left: 0; bottom: 0; transform-origin: 0 100%; }
+.zoom-caption { position: absolute; left: 0; top: 462px; font-size: 40px; }
+.zoom-caption .num { font-size: 44px; }
+.zoom-caption .caption { font-size: 36px; }
+.zoom-def { position: absolute; left: 0; right: 0; top: 548px; font-size: 38px; line-height: 1.35; }
+.zoom-def .lede { font-size: 38px; }
+.hum { animation: hum 1.6s ease-in-out infinite; }
+@keyframes hum { 0%, 100% { opacity: 0.2; transform: translateY(0); } 50% { opacity: 1; transform: translateY(-6px); } }
+
+/* problems */
+.problems { display: grid; grid-template-columns: repeat(3, 1fr); gap: 60px; height: 600px; align-items: stretch; padding-top: 20px; }
+.problem { text-align: center; display: flex; flex-direction: column; align-items: center; padding: 36px 32px 40px; }
+.problem-icon { width: 280px; height: 250px; color: var(--ink); }
+.problem h3 { font-family: var(--display); font-weight: 600; font-size: 44px; margin: 22px 0 14px; }
+.problem p { font-size: 32px; line-height: 1.35; font-style: italic; }
+
+/* FLOPS ladder */
+.flops-slide .slide-h { font-size: 52px; }
+.flops { display: grid; grid-template-columns: 1000px 1fr; gap: 40px; height: 100%; }
+.ladder { width: 1000px; height: 600px; }
+.ladder-exp { font-family: var(--display); font-size: 22px; fill: var(--ink-soft); }
+.ladder-who { font-family: var(--display); font-weight: 600; font-size: 34px; fill: var(--ink); }
+.ladder-val { font-family: var(--serif); font-size: 30px; fill: var(--ink); }
+.flops-side { display: flex; flex-direction: column; gap: 30px; }
+.humans p { font-size: 28px; line-height: 1.35; }
+.humans-big { margin: 10px 0; font-size: 34px !important; }
+.humans-big .num { font-size: 46px; }
+.flops-game { display: flex; flex-direction: column; gap: 16px; }
+.game-q { display: flex; gap: 14px; align-items: center; font-size: 40px; }
+.game-q input { width: 150px; font-family: var(--display); font-size: 40px; border: none; border-bottom: 2px solid var(--ink); background: transparent; color: var(--ink); outline: none; text-align: center; }
+.game-result { font-size: 26px; line-height: 1.35; }
+
+/* ASCI White */
+.asci { display: grid; grid-template-columns: 1fr 120px 1fr; align-items: start; height: 100%; }
+.asci-col { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.asci-art { width: 600px; height: 280px; }
+.asci-year { font-size: 30px; letter-spacing: 0.2em; margin-top: 10px; color: var(--ink-soft); }
+.asci-col h3 { font-family: var(--display); font-weight: 600; font-size: 50px; margin: 4px 0 12px; }
+.asci-col p { font-size: 30px; line-height: 1.35; max-width: 680px; }
+.asci-vs { font-size: 60px; align-self: center; text-align: center; font-style: italic; }
+.elephants { width: 680px; height: 74px; margin-top: 12px; }
+
+/* pizza */
+.pizza { display: grid; grid-template-columns: 760px 1fr; gap: 40px; height: 100%; }
+.pizza-left { display: flex; flex-direction: column; gap: 18px; }
+.pizza-rules { font-size: 28px; line-height: 1.4; }
+.pizza-scene { width: 760px; height: 120px; }
+.pizza-more { font-family: var(--display); font-size: 22px; fill: var(--ink); }
+.pizza-oven-label { font-family: var(--display); font-size: 16px; letter-spacing: 0.2em; fill: var(--ink); }
+.pizza-readout { display: flex; gap: 70px; }
+.pizza-n { font-size: 72px; line-height: 1; }
+.pizza-chart { width: 860px; height: 470px; }
+.chart-label { font-style: italic; font-size: 26px; fill: var(--ink); }
+.chart-tick { font-family: var(--display); font-size: 20px; fill: var(--ink-soft); }
+.chart-axis { font-style: italic; font-size: 24px; fill: var(--ink-soft); }
+.amdahl { position: absolute; left: 0; right: 0; bottom: -10px; text-align: center; font-size: 36px; }
+.amdahl .num { font-size: 38px; }

@@ -1,0 +1,90 @@
+/* ===================== Section IV: Getting It Right ===================== */
+
+/* ---------- 8800 reveal ---------- */
+.g80 { align-items: center; }
+.g80-stage { position: relative; width: 1660px; height: 560px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.g80-rays { position: absolute; inset: 0; }
+.g80-card { position: relative; z-index: 1; }
+.g80-curtain { position: absolute; inset: 0; z-index: 2; background: var(--ink); display: flex; align-items: center; justify-content: center; }
+.g80-curtain::after { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent 0 60px, rgba(246, 243, 236, 0.07) 60px 64px); }
+.g80-curtain-text { font-family: var(--display); font-weight: 600; font-size: 220px; color: var(--paper); letter-spacing: 0.08em; }
+.g80-text { text-align: center; margin-top: 26px; }
+.g80-name { font-family: var(--display); font-weight: 600; font-size: 72px; }
+.g80-sub { font-style: italic; font-size: 32px; color: var(--ink-soft); }
+.g80-punch { margin-top: 18px; font-size: 38px; font-style: italic; }
+.g80-punch b { font-family: var(--display); font-style: normal; }
+
+/* ---------- dissolve ---------- */
+.dissolve-area { position: relative; width: 1660px; height: 560px; }
+.d-station { position: absolute; top: 120px; height: 140px; border: 2px solid var(--ink); background: var(--paper); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-weight: 600; font-size: 34px; }
+.d-worker { position: absolute; left: 0; top: 0; display: flex; flex-direction: column; align-items: center; }
+.d-worker .w-glyph { position: absolute; top: -20px; left: 22px; }
+.dissolve-text { position: absolute; left: 0; right: 0; bottom: -90px; display: flex; justify-content: center; }
+.d-line { font-size: 40px; font-style: italic; }
+.d-line b { font-family: var(--display); font-style: normal; }
+.d-sure { display: flex; gap: 60px; }
+.d-sure-item { white-space: nowrap; font-size: 36px; font-style: italic; opacity: 0.45; }
+.d-sure-item.cur { opacity: 1; }
+.d-sure-item b { font-family: var(--display); font-style: normal; }
+.dissolve-ctl { position: absolute; right: 0; top: 10px; display: flex; gap: 10px; }
+
+/* ---------- CUDA ---------- */
+.cuda-main { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; }
+.cuda-col { display: flex; flex-direction: column; gap: 18px; align-items: flex-start; }
+.cuda-head { font-size: 30px; font-style: italic; }
+.cuda-head span { font-family: var(--display); font-style: normal; font-weight: 600; font-size: 40px; margin-right: 14px; }
+.cuda-code { width: 100%; height: 250px; background: var(--ink); color: var(--paper); padding: 22px 26px; font-family: 'DejaVu Sans Mono', 'Courier New', monospace; font-size: 20px; line-height: 1.5; white-space: pre; overflow: hidden; }
+.strip { display: grid; grid-template-columns: repeat(16, 46px); gap: 2px; margin-top: 18px; }
+.strip-cell { position: relative; height: 46px; border: 1.5px solid var(--ink); background: var(--paper); transition: background 0.25s; }
+.strip-cell.done { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='6'%3E%3Cpath d='M0 6L6 0' stroke='%23000000' stroke-width='1.6'/%3E%3C/svg%3E"), var(--paper); }
+.strip-worker { position: absolute; left: 8px; top: -30px; transform: scale(0.85); }
+.cuda-stat { font-size: 30px; margin-top: 26px; }
+.cuda-stat .num { font-size: 40px; }
+.cuda-punch { position: absolute; left: 0; right: 0; bottom: -10px; text-align: center; font-size: 38px; font-style: italic; }
+
+/* ---------- stadium ---------- */
+.stadium-main { display: grid; grid-template-columns: 560px 1fr; gap: 70px; }
+.st-col { display: flex; flex-direction: column; gap: 14px; }
+.col-title { font-size: 28px; font-style: italic; }
+.col-title b { font-family: var(--display); font-style: normal; font-size: 36px; margin-right: 12px; }
+.squads { display: flex; flex-direction: column; gap: 5px; }
+.squad { display: flex; align-items: center; gap: 16px; height: 28px; }
+.squad-n { width: 28px; font-family: var(--display); font-size: 20px; text-align: right; }
+.squad-dots { display: flex; gap: 4px; }
+.squad-dots i { width: 14px; height: 14px; border-radius: 50%; border: 1.5px solid var(--ink); background: var(--paper); transition: background 0.1s; }
+.squad.working .squad-dots i { background: var(--ink); }
+.squad.waiting .squad-dots i { border-style: dotted; opacity: 0.45; }
+.squad-state { font-style: italic; font-size: 20px; color: var(--ink-soft); }
+.squad.working .squad-state { font-weight: 500; color: var(--ink); }
+.meter { display: flex; align-items: center; gap: 16px; margin-top: 8px; }
+.meter-label { font-family: var(--display); letter-spacing: 0.16em; text-transform: uppercase; font-size: 18px; width: 64px; }
+.meter-bar { width: 360px; height: 22px; border: 1.5px solid var(--ink); }
+.meter-fill { height: 100%; background: var(--ink); transition: width 0.3s; }
+.meter-val { font-size: 30px; }
+.stadium-bottom { position: absolute; left: 0; bottom: 70px; display: flex; gap: 40px; align-items: center; }
+.stadium-bottom .control { font-size: 24px; gap: 14px; }
+.stadium-punch { position: absolute; left: 0; right: 0; bottom: 0; text-align: center; font-size: 40px; font-style: italic; }
+.stadium-punch b { font-family: var(--display); font-style: normal; }
+
+/* ---------- the bet ---------- */
+.bet-main { display: grid; grid-template-columns: 1fr 900px; gap: 60px; }
+.bet-left { display: flex; flex-direction: column; gap: 26px; padding-top: 20px; }
+.bet-quote { font-family: var(--display); font-weight: 600; font-size: 46px; line-height: 1.2; margin-top: 20px; }
+.bet-chart .caption { text-align: center; }
+.bet-road { position: absolute; left: 0; right: 0; bottom: -20px; display: flex; align-items: flex-end; gap: 40px; justify-content: center; }
+.bet-road-text { font-size: 42px; font-style: italic; margin-bottom: 40px; }
+
+/* ---------- Tianhe ---------- */
+.tianhe-main { display: grid; grid-template-columns: 600px 1fr; gap: 70px; }
+.board { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-top: 30px; }
+.board li { display: grid; grid-template-columns: 70px 1fr auto; align-items: baseline; border-bottom: 1.5px solid var(--ink); padding: 14px 6px; font-size: 34px; }
+.board li.first { border: 2px solid var(--ink); background: var(--ink); color: var(--paper); padding: 20px 16px; font-size: 42px; }
+.board .rank, .board .pf { font-family: var(--display); font-weight: 600; }
+.board em { font-size: 0.7em; opacity: 0.75; margin-left: 8px; }
+.tianhe-gpus { display: flex; flex-direction: column; align-items: center; gap: 22px; }
+.tianhe-plate { padding: 0; }
+.tianhe-plate canvas { display: block; width: 896px; height: 392px; }
+.tianhe-count { font-size: 34px; font-style: italic; }
+.tianhe-count .num { font-size: 52px; font-style: normal; margin-right: 8px; }
+.tianhe-text { position: absolute; left: 0; right: 0; bottom: 0; text-align: center; font-size: 38px; font-style: italic; display: flex; flex-direction: column; gap: 10px; }
+.tianhe-punch { font-family: var(--display); font-style: normal; font-weight: 600; font-size: 44px; }
