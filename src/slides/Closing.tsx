@@ -4,11 +4,11 @@ import type { SlideProps } from '../deck/types';
 import { PlateCrop, Reveal } from './common';
 
 const PROMPTS = [
-  'What is the third free lunch? Quantum, optical, specialised chips, something else?',
-  'Is AI worth the electricity? Where do we draw the line?',
-  'Did NVIDIA get lucky, or did they see it coming?',
-  'Can Zambia and Africa take part in the compute race?',
-  'If you had a supercomputer for one day, what would you simulate?',
+  'By 2036, where does the next big speed-up come from? Quantum, optical, specialised chips, or better software?',
+  'In 2036, what will HPC mostly be used for? AI, climate and weather, drug discovery, something else?',
+  'In 10 years, is NVIDIA still the king of AI chips? If not, who took the crown?',
+  'By 2036, will Africa have a supercomputer in the world top 10? Will Zambia?',
+  'In 10 years, will your phone run an AI as smart as today’s ChatGPT, with no internet?',
 ];
 
 /** Where the site lives online (GitHub Pages). The QR opens it in explore mode. */
@@ -53,7 +53,7 @@ export function Closing({ step, explore }: SlideProps) {
           <p className="big">What is the third?</p>
         </Reveal>
         <Reveal show={step >= 1} className="closing-prompts">
-          <div className="eyebrow">Symposium</div>
+          <div className="eyebrow">Symposium · Place your bets</div>
           <ol>
             {PROMPTS.map((p, i) => (
               <li key={i} style={{ fontSize: 30, marginBottom: 16 }}>
