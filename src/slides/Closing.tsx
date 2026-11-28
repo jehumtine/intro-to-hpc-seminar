@@ -2,14 +2,8 @@ import { useMemo } from 'react';
 import QRCode from 'qrcode';
 import type { SlideProps } from '../deck/types';
 import { PlateCrop, Reveal } from './common';
+import { NUMERALS, QUESTIONS } from '../data/bets';
 
-const PROMPTS = [
-  'By 2036, where does the next big speed-up come from? Quantum, optical, specialised chips, or better software?',
-  'In 2036, what will HPC mostly be used for? AI, climate and weather, drug discovery, something else?',
-  'In 10 years, is NVIDIA still the king of AI chips? If not, who took the crown?',
-  'By 2036, will Africa have a supercomputer in the world top 10? Will Zambia?',
-  'In 10 years, will your phone run an AI as smart as today’s ChatGPT, with no internet?',
-];
 
 /** Where the site lives online (GitHub Pages). The QR opens it in explore mode. */
 const ONLINE_URL = 'https://jehumtine.github.io/intro-to-hpc-seminar/?explore';
@@ -37,6 +31,9 @@ function QrSlot() {
         <div className="eyebrow" style={{ fontSize: 20 }}>Play with it yourself</div>
         <p style={{ fontSize: 28, marginTop: 8 }}>Scan to open every demo on your phone.</p>
         <p className="hint" style={{ fontSize: 22 }}>{ONLINE_LABEL}</p>
+        <a href="./?bets" style={{ display: 'inline-block', marginTop: 12, fontSize: 26, color: 'var(--ink)' }}>
+          Place your bet · see everyone’s →
+        </a>
       </div>
     </div>
   );
@@ -55,10 +52,10 @@ export function Closing({ step, explore }: SlideProps) {
         <Reveal show={step >= 1} className="closing-prompts">
           <div className="eyebrow">Symposium · Place your bets</div>
           <ol>
-            {PROMPTS.map((p, i) => (
+            {QUESTIONS.map(({ text }, i) => (
               <li key={i} style={{ fontSize: 30, marginBottom: 16 }}>
-                <span className="n">{['I', 'II', 'III', 'IV', 'V'][i]}</span>
-                {p}
+                <span className="n">{NUMERALS[i]}</span>
+                {text}
               </li>
             ))}
           </ol>
